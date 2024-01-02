@@ -9,10 +9,14 @@ class Client:
     self.tcp_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     self.udp_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-    self.udp_sock.bind((self.server_address, self.udp_server_port))
+    self.udp_sock.bind((self.server_address, 0))
+
+  def start(self):
+    self.tcp_sock.connect((self.server_address, self.tcp_server_port))
 
 def main():
-  return
+  client = Client()
+  client.start()
 
 if __name__ == "__main__":
   main()
