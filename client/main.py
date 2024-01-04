@@ -1,4 +1,4 @@
-from client_socket import Client
+from .client_socket import Client
 
 def main():
   client = Client()
